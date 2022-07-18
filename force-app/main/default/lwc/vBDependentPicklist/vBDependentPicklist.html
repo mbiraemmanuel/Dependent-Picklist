@@ -1,0 +1,43 @@
+<template>
+    <template if:false={showRadio}>
+        <lightning-combobox options={mainOptions}
+                            value = {mainValue}
+                            name = "MainChoice"
+                            label = {controllingFieldLabel}
+                            onchange = {handleMain}
+                            required = {required}>
+        </lightning-combobox>
+
+        <template if:true={showDependent}>
+            <lightning-combobox options={dependentOptions}
+                                value = {dependentValue}
+                                name = "DependentChoice"
+                                label = {dependentFieldLabel}
+                                onchange = {handleDependent}
+                                required = {required}>
+            </lightning-combobox>
+        </template>
+    </template>
+    <template if:true={showRadio}>
+        <lightning-radio-group options={mainOptions}
+                            value = {mainValue}
+                            name = "MainChoice"
+                            label = {controllingFieldLabel}
+                            onchange = {handleMain}
+                            required = {required}>
+        </lightning-radio-group>
+
+        <template if:true={dependentOptions}>
+            <lightning-radio-group options={dependentOptions}
+                                value = {dependentValue}
+                                name = "DependentChoice"
+                                label = {dependentFieldLabel}
+                                onchange = {handleDependent}
+                                required = {required}>
+            </lightning-radio-group>
+        </template>
+    </template>
+    
+
+
+</template>
